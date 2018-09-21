@@ -17,7 +17,7 @@ class ApiClient {
   ApiClient._internal();
 
   final String baseUrl = 'api.themoviedb.org';
-  final String jsonUrl = 'https://raw.githubusercontent.com/jiebo/heroku-telegram-bot/master/dcube_projects.json';
+  final String jsonUrl = 'https://raw.githubusercontent.com/jiebo/dcube_flutter/master/assets/dcube_projects.json';
 
   factory ApiClient() => _client;
 
@@ -126,6 +126,6 @@ class ApiClient {
     var url = Uri.https(jsonUrl, "");
     return _getJson(url)
         .then((json) => json['projects'])
-        .then((data) => data.map<Project>((item) => Project(item)).toList());
+        .then((data) => data.map<Project>((item) => Project.fromJson(item)).toList());
   }
 }

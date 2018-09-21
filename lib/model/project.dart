@@ -1,11 +1,12 @@
 class Project {
-  String title;
-  String description;
+  final String title;
+  final String description;
+  final String imagePath;
 
-  factory Project(Map jsonMap) =>
-      Project._fromJson(jsonMap);
+  const Project({this.title, this.description, this.imagePath});
 
-  Project._fromJson(Map jsonMap) :
-      title = jsonMap['title'],
-      description = jsonMap['description'];
+  Project.fromJson(Map jsonMap)
+      : this.title = jsonMap['title'],
+        this.description = jsonMap['description'],
+        this.imagePath = jsonMap['image_path'];
 }

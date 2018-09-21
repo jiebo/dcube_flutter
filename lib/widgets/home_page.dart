@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies_flutter/util/mediaproviders.dart';
 import 'package:movies_flutter/util/projectprovider.dart';
 import 'package:movies_flutter/widgets/media_list/media_list.dart';
+import 'package:movies_flutter/widgets/project_list/project_list.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -29,13 +30,14 @@ class HomePageState extends State<HomePage> {
   }
 
   List<Widget> _getProjectList() {
-    return <Widget>[
-            MediaList(
-              movieProvider,
-              "popular",
-              key: Key("movies-popular"),
-            ),
-          ];
+//    return <Widget>[
+//            MediaList(
+//              movieProvider,
+//              "popular",
+//              key: Key("movies-popular"),
+//            ),
+//          ];
+    return <Widget>[ProjectList(projectProvider, key: Key("projects"))];
   }
 
   @override
