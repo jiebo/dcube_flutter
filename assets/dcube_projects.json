@@ -1,0 +1,14 @@
+{
+  "projects": [
+    {
+      "title": "OneService",
+      "description": "OneService allows reporting of municipal issues found within Singapore",
+      "image_path": "https://lh3.googleusercontent.com/NJRZspFtfL7pmrwg-ZNeRtiFnM1fJDUFULccnnBah7pO7ySqag3ARew0xK50nlNQUz7J"
+    },
+    {
+      "title": "Moments of Life",
+      "description":"A one-stop, convenient platform to support families with young children",
+      "image_path": "https://lh3.googleusercontent.com/-E6ry4JJIQRdKHbZAbYzL0W4A8STnGdvHS32lbutAr5R33SNma2yMP-AVPnluD93OY4"
+    }
+  ]
+}
