@@ -29,8 +29,6 @@ class _ProjectListState extends State<ProjectList> {
         _isLoading = false;
       });
     } catch (e) {
-      print("Inside here");
-      print(e.toString());
       _isLoading = false;
       if (_loadingState == LoadingState.LOADING) {
         setState(() => _loadingState = LoadingState.ERROR);

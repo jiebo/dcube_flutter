@@ -17,7 +17,7 @@ class ApiClient {
   ApiClient._internal();
 
   final String baseUrl = 'api.themoviedb.org';
-  final String jsonUrl = 'https://raw.githubusercontent.com/jiebo/dcube_flutter/master/assets/dcube_projects.json';
+  final String jsonUrl = 'raw.githubusercontent.com';
 
   factory ApiClient() => _client;
 
@@ -123,7 +123,7 @@ class ApiClient {
 
   // DCube Projects
   Future<List<Project>> loadProjects() {
-    var url = Uri.https(jsonUrl, "");
+    var url = Uri.https(jsonUrl, "jiebo/dcube_flutter/master/assets/dcube_projects.json");
     return _getJson(url)
         .then((json) => json['projects'])
         .then((data) => data.map<Project>((item) => Project.fromJson(item)).toList());

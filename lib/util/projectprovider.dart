@@ -9,6 +9,7 @@ abstract class ProjectProvider {
 
 class DCubeProjectProvider extends ProjectProvider {
   DCubeProjectProvider();
+
   ApiClient _apiClient = ApiClient();
 
   @override
