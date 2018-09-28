@@ -8,5 +8,5 @@ void main() async {
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
 
   runApp(ScopedModel<AppModel>(
-      model: AppModel(sharedPreferences), child: CinematicApp()));
+      model: AppModel(sharedPreferences), child: DCubeApp()));
 }
