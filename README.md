@@ -22,3 +22,6 @@ This app has three core functionalities:
 This is an `OR` clause, so just pick the one you like.
 * UI - Just fancy up the app however you want, look through libraries or samples out there
 * API - Consume the Google PlayStore or Apple AppStore APIs and display app-related information
+
+# References
+https://github.com/Solido/awesome-flutter
