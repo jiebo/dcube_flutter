@@ -23,6 +23,9 @@ class HomePageState extends State<HomePage> {
           icon: new Icon(LineAwesomeIcons.home, color: iconColor),
           title: new Text("Mobile")),
       new BottomNavigationBarItem(
+          icon: new Icon(LineAwesomeIcons.bookmark, color: iconColor),
+          title: new Text("Web")),
+      new BottomNavigationBarItem(
           icon: new Icon(
             LineAwesomeIcons.bookmark,
             color: iconColor,
@@ -47,7 +50,7 @@ class HomePageState extends State<HomePage> {
                       _currentIndex = index;
                     });
           print(_currentIndex.toString());
-          if (index == 1){
+          if (index == 2){
             Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => new CameraApp()),
