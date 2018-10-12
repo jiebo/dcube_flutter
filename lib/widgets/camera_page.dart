@@ -31,6 +31,7 @@ class _CameraAppState extends State<CameraApp> {
       cameras = await availableCameras();
       // initialize camera controllers.
       controller = new CameraController(cameras[0], ResolutionPreset.medium);
+      debugPrint(cameras.length.toString());
       await controller.initialize();
     } on CameraException catch (_) {
       // do something on error.
