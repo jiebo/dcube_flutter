@@ -3,6 +3,7 @@ import 'package:movies_flutter/util/projectprovider.dart';
 import 'package:movies_flutter/widgets/project_list/project_list.dart';
 import 'package:movies_flutter/icons.dart';
 import 'package:movies_flutter/colors.dart';
+import 'camera_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,7 +12,7 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   PageController _pageController;
-
+  int _currentIndex = 0;
   final ProjectProvider projectProvider = DCubeProjectProvider();
 
   @override
@@ -26,7 +27,7 @@ class HomePageState extends State<HomePage> {
             LineAwesomeIcons.bookmark,
             color: iconColor,
           ),
-          title: new Text("Web"))
+          title: new Text("Camera"))
     ];
 
     return Scaffold(
@@ -41,7 +42,18 @@ class HomePageState extends State<HomePage> {
       bottomNavigationBar: new BottomNavigationBar(
         currentIndex: 0,
         items: navigationItems,
-        onTap: (index) {},
+        onTap: (index) {
+          setState(() {
+                      _currentIndex = index;
+                    });
+          print(_currentIndex.toString());
+          if (index == 1){
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => new CameraApp()),
+  );
+          }
+        },
         fixedColor: ProfileColors.primaryColor,
         iconSize: 25.0,
         type: BottomNavigationBarType.fixed,

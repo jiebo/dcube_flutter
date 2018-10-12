@@ -9,7 +9,7 @@ class DCubeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScopedModelDescendant<AppModel>(
       builder: (context, child, model) => MaterialApp(
-            title: 'DCube',
+            title: 'DCube Apps',
             theme: model.theme,
             home: HomePage(),
           ),
