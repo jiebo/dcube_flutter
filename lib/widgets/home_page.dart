@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies_flutter/util/projectprovider.dart';
+import 'package:movies_flutter/util/utils.dart';
+import 'package:movies_flutter/model/project.dart';
 import 'package:movies_flutter/widgets/project_list/project_list.dart';
 import 'package:movies_flutter/icons.dart';
 import 'package:movies_flutter/colors.dart';
@@ -13,6 +15,27 @@ class HomePageState extends State<HomePage> {
   PageController _pageController;
 
   final ProjectProvider projectProvider = DCubeProjectProvider();
+  List<Project> _projects = List();
+  LoadingState _loadingState = LoadingState.LOADING;
+  bool _isLoading = false;
+
+  _loadProjects() async {
+    _isLoading = true;
+
+    try {
+      var projects = await projectProvider.loadProjects();
+      setState(() {
+        _loadingState = LoadingState.DONE;
+        _projects.addAll(projects);
+        _isLoading = false;
+      });
+    } catch (e) {
+      _isLoading = false;
+      if (_loadingState == LoadingState.LOADING) {
+        setState(() => _loadingState = LoadingState.ERROR);
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +54,16 @@ class HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("DCube"),
+        title: Text("DCube")
+      ),
+      drawer: Drawer(
+        child: ListView.builder(
+            itemCount: _projects.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text('${_projects[index].title}'),
+              );
+            })
       ),
       body: PageView(
         children: _getProjectList(),
@@ -56,6 +88,7 @@ class HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    _loadProjects();
     _pageController = PageController();
   }
 
